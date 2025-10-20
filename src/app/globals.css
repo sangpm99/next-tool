@@ -1,26 +1,244 @@
+@import "antd/dist/reset.css";
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary-color: #f78fb3;
+    --bg-header-menu-color: #848484;
+    --layout-spacing: 2rem;
+    --section-color: #F8F9FA;
+    --card-color: #E9ECEF;
+    --footer-color: #111827;
+    --footer-card-color: #343A47;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+::-webkit-scrollbar {
+    width: 0;
+}
+
+@theme {
+    /* Color */
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --dark-color: #111827;
+
+    /* Breakpoints Base on Ant Design */
+    --breakpoint-*: initial;
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1600px;
+}
+
+@layer base {
+    :root {
+        --screen-xs: theme(screens.xs);
+        --screen-sm: theme(screens.sm);
+        --screen-md: theme(screens.md);
+        --screen-lg: theme(screens.lg);
+        --screen-xl: theme(screens.xl);
+        --screen-xxl: theme(screens.xxl);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    /*:root {*/
+    /*    --background: #0a0a0a;*/
+    /*    --foreground: #ededed;*/
+    /*}*/
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    touch-action: pan-y;
 }
+
+/* 👉 General */
+.layout-spacing {
+    padding-left: var(--layout-spacing);
+    padding-right: var(--layout-spacing);
+}
+
+/* 👉 Button */
+.btn-white {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.btn-white:hover {
+    color: #ffffff !important;
+    background-color: var(--primary-color) !important;
+}
+
+.btn-trans {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+}
+
+.btn-trans:hover {
+    color: #000 !important;
+    background-color: #ffffff !important;
+}
+
+.btn-remove-bg {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* 👉 Header */
+.font-navbar {
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.menu-transparent {
+    background: transparent !important;
+}
+
+/* 👉 Text */
+.title {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 80px;
+    font-style: normal;
+}
+
+.text-caption {
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.5;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-hover-primary:hover {
+    color: var(--primary-color) !important;
+}
+
+.link-white,
+.link-white * {
+    color: #ffffff !important;
+    transition: color 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.link-white:hover,
+.link-white *:hover{
+    color: var(--primary-color) !important;
+}
+
+/* 👉 Animation */
+.animate-swip {
+    animation: swip 1s ease-in-out infinite;
+}
+
+/* 👉 Antd */
+ul.ant-menu-sub {
+    background-color: var(--bg-header-menu-color) !important;
+    border-radius: 5px !important;
+}
+
+ul.ant-menu-sub li.ant-menu-item {
+    border-radius: 0 !important;
+    margin-inline: 0 !important;
+    margin-block: 0 !important;
+    width: 100% !important;
+}
+
+ul.ant-menu-sub li.ant-menu-item:not(:last-child) {
+    border-bottom: 1px solid #ffffff !important;
+}
+
+.drawer-body-p-0 .ant-drawer-body {
+    padding: 0 !important;
+}
+
+.ant-drawer-content {
+    background-color: var(--dark-color) !important;
+}
+
+.ant-drawer-header {
+    border-bottom: 1px solid var(--color-gray-700) !important;
+}
+
+.ant-drawer-header-title {
+    flex-direction: row-reverse !important;
+}
+
+.ant-drawer-header svg {
+    fill: #ffffff !important;
+}
+
+@keyframes swip {
+    0%, 100% {
+        opacity: 0.2;
+        transform: translateY(-10px);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/* xxl */
+@media (max-width: 1600px) {}
+
+/* xl */
+@media (max-width: 1200px) {
+    li.ant-menu-item,
+    .ant-menu-submenu-title {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    ul.ant-menu-sub {
+        background-color: transparent !important;
+        border-radius: 0 !important;
+    }
+
+    ul.ant-menu-sub li.ant-menu-item:not(:last-child) {
+        border: none !important;
+    }
+}
+
+/* lg */
+@media (max-width: 992px) {
+    :root {
+        --layout-spacing: 2rem;
+    }
+
+    .title {
+        font-size: 40px;
+        line-height: 40px;
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    :root {
+        --layout-spacing: 1rem;
+    }
+}
+
+/* sm */
+@media (max-width: 576px) {
+    .title {
+        font-size: 30px;
+        line-height: 30px;
+    }
+}
+
+/* xs */
+@media (max-width: 480px) {}
