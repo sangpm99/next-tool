@@ -19,7 +19,7 @@ export default function AppProviders({
         <ConfigProvider
           theme={{
             token: {
-              colorPrimary: "#CA0808",
+              colorPrimary: "#ff5e9a",
               fontFamily: "var(--font-open), sans-serif",
             },
             components: {
