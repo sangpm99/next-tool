@@ -11,6 +11,11 @@
     --card-color: #E9ECEF;
     --footer-color: #111827;
     --footer-card-color: #343A47;
+
+    --success-color: #52c41a;
+    --info-color: #1677ff;
+    --warning-color: #faad14;
+    --danger-color: #ff4d4f;
 }
 
 ::-webkit-scrollbar {
@@ -61,6 +66,23 @@ body {
 .layout-spacing {
     padding-left: var(--layout-spacing);
     padding-right: var(--layout-spacing);
+}
+
+/* 👉 Color */
+.text-success {
+    color: var(--success-color) !important;
+}
+
+.text-info {
+    color: var(--info-color) !important;
+}
+
+.text-warning {
+    color: var(--warning-color) !important;
+}
+
+.text-danger {
+    color: var(--danger-color) !important;
 }
 
 /* 👉 Button */
@@ -176,6 +198,15 @@ ul.ant-menu-sub li.ant-menu-item:not(:last-child) {
 
 .ant-drawer-header svg {
     fill: #ffffff !important;
+}
+
+.ant-btn-icon {
+    display: flex;
+    font-size: 18px;
+}
+
+.main-menu {
+    border-right: none !important;
 }
 
 @keyframes swip {

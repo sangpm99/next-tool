@@ -27,6 +27,9 @@ export default function AppProviders({
                 starColor: "#FFC069",
                 starSize: 14,
               },
+              Card: {
+                bodyPadding: 12,
+              },
             },
           }}
         >

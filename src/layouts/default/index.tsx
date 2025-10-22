@@ -82,6 +82,7 @@ export default function DefaultLayout({ children }: Props) {
             onClick={onNavigate}
             selectedKeys={defaultSelectedKeys}
             items={items}
+            className="main-menu"
           />
         </AntdSider>
         <Layout>
